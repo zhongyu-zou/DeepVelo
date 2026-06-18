@@ -54,10 +54,11 @@ def validate_config(config: Mapping) -> Mapping:
 
         try:
             dgl.graph([]).to("cuda")
-        except dgl.DGLError:
+        except (dgl.DGLError, RuntimeError):
             print(
-                "Config Warning: Set to use GPU, but GPU version of DGL is not "
-                "installed. Reset to use CPU instead."
+                "Config Warning: Set to use GPU, but GPU is not available "
+                "(no driver or GPU version of DGL not installed). "
+                "Reset to use CPU instead."
             )
             config["n_gpu"] = 0
 
