@@ -30,7 +30,7 @@ cellrank = { version = "1.5.0", optional = true }
 
 [tool.poetry.extras]
 gpu = ["dgl-cu102"]
-cellrank = ["cellrank>=1.5.0"]
+cellrank = ["cellrank"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
